@@ -47,7 +47,7 @@ V = pygame.Vector2
 
 
 #finances
-playermony = 300
+playermony = 2500
 font = pygame.font.SysFont("Arial", 30)
 pygame.draw.rect(DISPLAYSURF, "white", pygame.rect.Rect(280,50,100,50))
 DISPLAYSURF.blit(font.render("$ " + str( playermony), True, "darkgreen"), (285, 60))
@@ -89,7 +89,7 @@ class tower(pygame.sprite.Sprite):
     super().__init__(Sprites)
     self.image = manface
     self.damage = damage
-    self.cd = 3000
+    self.cd = 1000
     self.lastShot = 1
     self.projectile = manface
     self.placed = False
@@ -105,6 +105,7 @@ class tower(pygame.sprite.Sprite):
         if self.pos.distance_to(enemy.pos) <= 75:
           enemy.kill()
           self.lastShot = pygame.time.get_ticks()
+          break
     DISPLAYSURF.blit(self.image, self.rect)
     for event in events:
       if event.type == pygame.MOUSEBUTTONDOWN:
@@ -189,7 +190,7 @@ while True:
       pygame.quit()
       sys.exit()
     if event.type == spawnEnemy:
-      enhuhrnbnbnedibigvonnbodjdiobosbndobpkbmy(0.15)
+      enhuhrnbnbnedibigvonnbodjdiobosbndobpkbmy(0.2)
       if enhuhrnbnbnedibigvonnbodjdiobosbndobpkbmy.count == 10:
         pygame.time.set_timer(spawnEnemy, 0)
 
